@@ -28,12 +28,8 @@
 - [x] delete(index) - delete item at index, shifting all trailing elements left
 - [x] remove(item) - looks for value and removes index holding it (even if in multiple places)
 - [x] find(item) - looks for value and returns first index with that value, -1 if not found
-- [ ] resize(new_capacity) // private function
+- [x] resize(new_capacity) // private function
 
 ## TODO:
 
-Complete resize function, but might not need it, as I used it internally
-without explicitly needing this function.
-
-Resize the vector when popping or deleting results in the size being 1/4
-of the capacity
+None
