@@ -48,20 +48,7 @@ void Vector::push(int item)
         *(this->vector_array + this->size) = item;
         this->size += 1;
     } else {
-        cout << "------------------------------------" << endl;
-        cout << "Capacity is full : " << this->capacity << endl;
-        this->capacity *= 2;
-        cout << "Capacity is now doubled : " << this->capacity << endl;
-        cout << "------------------------------------" << endl;
-
-        int* ptr = new int[this->capacity];
-
-        for (int i = 0; i < this->size; i++) {
-            *(ptr + i) = *(this->vector_array + i);
-        }
-
-        delete[] this->vector_array;
-        this->vector_array = ptr;
+        this->resize();
         *(this->vector_array + this->size) = item;
         this->size += 1;
     }
@@ -105,6 +92,7 @@ int Vector::pop()
         int removedValue = this->vector_array[this->size - 1];
         this->vector_array[this->size - 1] = -1;
         this->size -= 1;
+        this->resize();
         return removedValue;
     }
     return -1;
@@ -153,6 +141,38 @@ int Vector::find(int item)
     return -1;
 }
 
-void Vector::resize(int new_capacity)
+void Vector::resize()
 {
+    if (this->size <= int(this->capacity / 4)) {
+        cout << endl
+             << "------------------------------------" << endl;
+        cout << "Capacity is 1/4 empty : " << this->capacity << endl;
+        this->capacity /= 2;
+        cout << "Capacity is now halved : " << this->capacity << endl;
+        cout << "------------------------------------" << endl;
+
+        int* ptr = new int[this->capacity];
+
+        for (int i = 0; i < this->size; i++) {
+            *(ptr + i) = *(this->vector_array + i);
+        }
+
+        delete[] this->vector_array;
+        this->vector_array = ptr;
+    } else if (this->size >= this->capacity) {
+        cout << "------------------------------------" << endl;
+        cout << "Capacity is full : " << this->capacity << endl;
+        this->capacity *= 2;
+        cout << "Capacity is now doubled : " << this->capacity << endl;
+        cout << "------------------------------------" << endl;
+
+        int* ptr = new int[this->capacity];
+
+        for (int i = 0; i < this->size; i++) {
+            *(ptr + i) = *(this->vector_array + i);
+        }
+
+        delete[] this->vector_array;
+        this->vector_array = ptr;
+    }
 }

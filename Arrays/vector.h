@@ -16,7 +16,7 @@ public:
     void deleteIdx(int index);
     void remove(int item);
     int find(int item);
-    void resize(int new_capacity);
+    void resize();
 
 private:
     int size = 0;
