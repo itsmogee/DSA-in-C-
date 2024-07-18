@@ -6,6 +6,8 @@ List::List() {
   this->tail = nullptr;
 }
 
+List::~List() {}
+
 int List::getSize() { return 0; };
 
 bool List::isEmpty() { return true; }
