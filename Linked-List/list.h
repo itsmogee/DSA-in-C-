@@ -20,11 +20,11 @@ public:
     void reverse();
     void removeValue(int value);
     ~List();
+    Node* head;
+    Node* tail;
 
 private:
     int size;
-    Node* head;
-    Node* tail;
 };
 
 #endif // !List_H
