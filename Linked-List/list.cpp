@@ -1,4 +1,5 @@
 #include "list.h"
+#include "node.h"
 
 List::List()
 {
@@ -7,7 +8,27 @@ List::List()
     this->tail = nullptr;
 }
 
-List::~List() { }
+List::~List()
+{
+    // Empty List
+    if (this->head == nullptr) {
+        return;
+    }
+
+    // List with only one item
+    if (this->head == this->tail) {
+        delete this->head;
+        return;
+    }
+
+    // List with multiple items
+    while (this->head->next != nullptr) {
+        Node* temp = this->head;
+        this->head = this->head->next;
+        delete temp;
+    }
+    delete this->head;
+}
 
 int List::getSize()
 {
@@ -30,7 +51,18 @@ int List::valueAt(int index)
 
 void List::pushFront(int value)
 {
-    return;
+    // Increase list size
+    this->size += 1;
+
+    // Create new node and replace head
+    Node* temp = new Node(value);
+    if (this->head == nullptr) {
+        this->head = temp;
+        this->tail = temp;
+    } else {
+        temp->next = this->head;
+        this->head = temp;
+    }
 }
 
 int List::popFront()
