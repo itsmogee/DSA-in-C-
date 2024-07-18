@@ -25,9 +25,10 @@ void testPushFront()
 
     cout << "List Size : " << linkedListTest.getSize() << endl;
 
-    while (linkedListTest.head) {
-        cout << linkedListTest.head->Key << endl;
-        linkedListTest.head = linkedListTest.head->next;
+    Node* temp = linkedListTest.head;
+    while (temp) {
+        cout << temp->Key << endl;
+        temp = temp->next;
     }
 }
 
