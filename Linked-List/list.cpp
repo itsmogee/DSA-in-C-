@@ -8,7 +8,7 @@ List::List() {
 
 List::~List() {}
 
-int List::getSize() { return 0; };
+int List::getSize() { return this->size; };
 
 bool List::isEmpty() { return true; }
 
