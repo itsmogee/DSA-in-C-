@@ -16,7 +16,11 @@ int List::getSize()
 
 bool List::isEmpty()
 {
-    return true;
+    if (this->head == nullptr) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 int List::valueAt(int index)
