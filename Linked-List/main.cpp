@@ -3,6 +3,14 @@
 
 using namespace std;
 
+void testPushFront();
+
+int main(int argc, char* argv[])
+{
+    testPushFront();
+    return 0;
+}
+
 void testPushFront()
 {
     List linkedListTest;
@@ -18,10 +26,4 @@ void testPushFront()
         cout << linkedListTest.head->Key << endl;
         linkedListTest.head = linkedListTest.head->next;
     }
-}
-
-int main(int argc, char* argv[])
-{
-    testPushFront();
-    return 0;
 }
