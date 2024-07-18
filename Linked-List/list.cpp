@@ -1,5 +1,8 @@
 #include "list.h"
+#include "iostream"
 #include "node.h"
+
+using namespace std;
 
 List::List()
 {
@@ -46,7 +49,21 @@ bool List::isEmpty()
 
 int List::valueAt(int index)
 {
-    return 0;
+    int idx = 0;
+
+    // Index out of bounds
+    if (index >= this->size || index < 0) {
+        cout << endl
+             << "Out of bounds";
+        return -9999;
+    }
+
+    Node* ptr = this->head;
+    while (idx != index) {
+        idx += 1;
+        ptr = ptr->next;
+    }
+    return ptr->Key;
 }
 
 void List::pushFront(int value)
