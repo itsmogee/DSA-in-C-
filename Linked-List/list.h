@@ -19,6 +19,7 @@ public:
     void erase(int index);
     void reverse();
     void removeValue(int value);
+    void print();
     ~List();
     Node* head;
     Node* tail;

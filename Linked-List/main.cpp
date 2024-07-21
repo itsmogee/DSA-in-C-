@@ -366,19 +366,11 @@ void testReverse()
 
     cout << "List : " << endl;
     Node* temp = linkedListTest.head;
-    while (temp) {
-        cout << temp->Key << " , ";
-        temp = temp->next;
-    }
+    linkedListTest.print();
 
     linkedListTest.reverse();
     cout << endl
          << "List after reversal" << endl;
     temp = linkedListTest.head;
-    cout << "Head == " << temp->Key << endl;
-    cout << "Tail == " << linkedListTest.tail->Key << endl;
-    while (temp) {
-        cout << temp->Key << " , ";
-        temp = temp->next;
-    }
+    linkedListTest.print();
 }

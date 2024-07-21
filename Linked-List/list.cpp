@@ -280,3 +280,16 @@ void List::reverse()
 };
 
 void List::removeValue(int value) {};
+
+void List::print()
+{
+    Node* tmp = this->head;
+    while (tmp != nullptr) {
+        cout << tmp->Key << " ";
+        tmp = tmp->next;
+    }
+    cout << endl
+         << "Head of list : " << this->head->Key << endl;
+    cout << endl
+         << "Tail of list : " << this->tail->Key << endl;
+}
