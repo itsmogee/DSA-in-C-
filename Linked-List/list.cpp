@@ -118,8 +118,30 @@ void List::pushBack(int value)
 
 int List::popBack()
 {
-    return 1;
+    // Empty List
+    if (!this->head) {
+        return -999;
+    } else if (this->head == this->tail) {
+        int retValue = this->head->Key;
+        delete this->head;
+        this->head = nullptr;
+        this->tail = nullptr;
+        this->size = 0;
+        return retValue;
+    }
+
+    Node* temp = this->head;
+    while (temp->next != this->tail) {
+        temp = temp->next;
+    }
+    this->size -= 1;
+    int retValue = this->tail->Key;
+    delete this->tail;
+    this->tail = temp;
+    this->tail->next = nullptr;
+    return retValue;
 };
+
 int List::front()
 {
     return 1;
