@@ -84,7 +84,18 @@ void List::pushFront(int value)
 
 int List::popFront()
 {
-    return 0;
+    // Remove front item and return the value
+    if (!this->head) {
+        return -9999;
+    }
+
+    Node* tempNode = this->head;
+    int removedValue = tempNode->Key;
+
+    this->head = tempNode->next;
+    delete tempNode;
+    this->size -= 1;
+    return removedValue;
 }
 
 void List::pushBack(int value) {};
