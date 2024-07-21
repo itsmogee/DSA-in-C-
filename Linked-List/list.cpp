@@ -157,7 +157,50 @@ int List::back()
     }
     return this->tail->Key;
 };
-void List::insert(int index, int value) {};
+
+void List::insert(int index, int value)
+{
+    /**
+    Insert a value at an index, the new index item will point to the old index item
+    Increment list size since its insertion
+    Find the value at
+    What if index is last value or larger ?
+    **/
+
+    if (index > this->size - 1) {
+        cout << "Index : " << index << " out of range " << endl;
+        return;
+    }
+
+    if (!this->head) {
+        // Empty List
+        this->head = new Node(value);
+        this->tail = this->head;
+        this->size += 1;
+        return;
+    } else if (this->head == this->tail || index == 0) {
+        // List with one item
+        this->pushFront(value);
+        return;
+    }
+
+    // Find the node at the index, keep track of previous node
+    Node* temp = this->head;
+    Node* prev = nullptr;
+    int idx = 0;
+    while (idx != index) {
+        idx += 1;
+        prev = temp;
+        temp = temp->next;
+    }
+
+    Node* newNode = new Node(value);
+    prev->next = newNode;
+    newNode->next = temp;
+    this->size += 1;
+    return;
+};
+
 void List::erase(int index) {};
 void List::reverse() {};
 void List::removeValue(int value) {};

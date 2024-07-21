@@ -17,6 +17,8 @@ void testFront();
 
 void testBack();
 
+void testInsertAt();
+
 int main(int argc, char* argv[])
 {
     /*testPushFront();*/
@@ -26,6 +28,7 @@ int main(int argc, char* argv[])
     /*testPopBack();*/
     testFront();
     testBack();
+    testInsertAt();
     return 0;
 }
 
@@ -231,7 +234,7 @@ void testFront()
     } else {
         cout << endl
              << "Head == " << linkedListTest.front() << endl;
-        /*cout << "Tail == " << linkedListTest.tail->Key << endl;*/
+        cout << "Tail == " << linkedListTest.back() << endl;
     }
 }
 
@@ -268,5 +271,40 @@ void testBack()
         cout << endl
              << "Back == " << linkedListTest.back() << endl;
         /*cout << "Tail == " << linkedListTest.tail->Key << endl;*/
+    }
+}
+
+void testInsertAt()
+{
+
+    cout << endl
+         << " ------------------------------ Testing Insert At() ------------------------------ " << endl;
+    List linkedListTest;
+
+    linkedListTest.pushFront(5);
+    linkedListTest.pushFront(18);
+    linkedListTest.pushFront(199);
+    linkedListTest.pushFront(223);
+    linkedListTest.pushFront(33);
+    linkedListTest.pushFront(18);
+    linkedListTest.pushFront(199);
+    linkedListTest.pushFront(28);
+
+    cout << "List : " << endl;
+    Node* temp = linkedListTest.head;
+    while (temp) {
+        cout << temp->Key << " , ";
+        temp = temp->next;
+    }
+
+    linkedListTest.insert(0, 99);
+    linkedListTest.insert(4, 999);
+    linkedListTest.insert(9, 88);
+    temp = linkedListTest.head;
+    cout << endl
+         << "List after insertions" << endl;
+    while (temp) {
+        cout << temp->Key << " , ";
+        temp = temp->next;
     }
 }
