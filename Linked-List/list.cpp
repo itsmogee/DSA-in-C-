@@ -253,5 +253,30 @@ void List::erase(int index)
     return;
 };
 
-void List::reverse() {};
+void List::reverse()
+{
+    /**
+        Reverse the list
+        Either inline (harder) or using extra storage or data structures
+        An option iterate over old list keep track of prev, curr and next nodes and reverse pointer structure
+    **/
+    if (!this->head || this->size == 1) {
+        return;
+    }
+
+    Node* prev = nullptr;
+    Node* curr = this->head;
+    this->tail = curr;
+    Node* next = nullptr;
+
+    while (curr != nullptr) {
+        next = curr->next;
+        curr->next = prev;
+
+        prev = curr;
+        curr = next;
+    }
+    this->head = prev;
+};
+
 void List::removeValue(int value) {};

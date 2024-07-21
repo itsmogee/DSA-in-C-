@@ -21,6 +21,8 @@ void testInsertAt();
 
 void testErase();
 
+void testReverse();
+
 int main(int argc, char* argv[])
 {
     /*testPushFront();*/
@@ -31,7 +33,8 @@ int main(int argc, char* argv[])
     /*testFront();*/
     /*testBack();*/
     /*testInsertAt();*/
-    testErase();
+    /*testErase();*/
+    testReverse();
     return 0;
 }
 
@@ -339,6 +342,41 @@ void testErase()
     temp = linkedListTest.head;
     cout << endl
          << "List after deletions" << endl;
+    while (temp) {
+        cout << temp->Key << " , ";
+        temp = temp->next;
+    }
+}
+
+void testReverse()
+{
+
+    cout << endl
+         << " ------------------------------ Testing Reverse() ------------------------------ " << endl;
+    List linkedListTest;
+
+    linkedListTest.pushFront(1);
+    linkedListTest.pushFront(2);
+    linkedListTest.pushFront(3);
+    linkedListTest.pushFront(4);
+    linkedListTest.pushFront(5);
+    linkedListTest.pushFront(6);
+    linkedListTest.pushFront(7);
+    linkedListTest.pushFront(8);
+
+    cout << "List : " << endl;
+    Node* temp = linkedListTest.head;
+    while (temp) {
+        cout << temp->Key << " , ";
+        temp = temp->next;
+    }
+
+    linkedListTest.reverse();
+    cout << endl
+         << "List after reversal" << endl;
+    temp = linkedListTest.head;
+    cout << "Head == " << temp->Key << endl;
+    cout << "Tail == " << linkedListTest.tail->Key << endl;
     while (temp) {
         cout << temp->Key << " , ";
         temp = temp->next;
