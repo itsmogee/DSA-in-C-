@@ -401,6 +401,11 @@ void testRemoveValue()
     linkedListTest.removeValue(1);
     linkedListTest.removeValue(2);
     linkedListTest.removeValue(3);
+    linkedListTest.removeValue(4);
+    linkedListTest.removeValue(5);
+    /*linkedListTest.removeValue(6);*/
+    /*linkedListTest.removeValue(7);*/
+    /*linkedListTest.removeValue(8);*/
     temp = linkedListTest.head;
     linkedListTest.print();
 }

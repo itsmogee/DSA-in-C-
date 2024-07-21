@@ -316,7 +316,14 @@ void List::removeValue(int value)
             }
             return;
         } else {
-            this->head = curr->next;
+            if (curr->next == nullptr) {
+                this->head = nullptr;
+                this->tail = nullptr;
+                this->size = 0;
+                return;
+            } else {
+                this->head = curr->next;
+            }
             this->size -= 1;
             delete curr;
             return;
@@ -327,14 +334,19 @@ void List::removeValue(int value)
 void List::print()
 {
     Node* tmp = this->head;
+    if (tmp == nullptr) {
+        cout << "Empty List" << endl;
+    }
     while (tmp != nullptr) {
         cout << tmp->Key << " ";
         tmp = tmp->next;
     }
-    cout << endl;
-    cout << endl
-         << "Head of list : " << this->head->Key << endl;
-    cout << endl
-         << "Tail of list : " << this->tail->Key << endl
-         << endl;
+    if (this->head != nullptr) {
+        cout << endl;
+        cout << endl
+             << "Head of list : " << this->head->Key << endl;
+        cout << endl
+             << "Tail of list : " << this->tail->Key << endl
+             << endl;
+    }
 }
