@@ -144,8 +144,12 @@ int List::popBack()
 
 int List::front()
 {
-    return 1;
+    if (!this->head) {
+        return -9999;
+    }
+    return this->head->Key;
 };
+
 int List::back()
 {
     return 1;
