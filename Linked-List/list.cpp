@@ -279,7 +279,50 @@ void List::reverse()
     this->head = prev;
 };
 
-void List::removeValue(int value) {};
+void List::removeValue(int value)
+{
+    /**
+        Remove the first item in the list with this value
+    **/
+
+    if (!this->head) {
+        return;
+    }
+
+    Node* prev = nullptr;
+    Node* curr = this->head;
+
+    while (curr != nullptr) {
+        if (curr->Key == value) {
+            break;
+        } else {
+            prev = curr;
+            curr = curr->next;
+        }
+    }
+
+    if (curr == nullptr) {
+        cout << "Node with value : " << value << " not found in the list" << endl;
+        return;
+    }
+
+    if (curr->Key == value) {
+        if (prev != nullptr) {
+            prev->next = curr->next;
+            delete curr;
+            this->size -= 1;
+            if (prev->next == nullptr) {
+                this->tail = prev;
+            }
+            return;
+        } else {
+            this->head = curr->next;
+            this->size -= 1;
+            delete curr;
+            return;
+        }
+    }
+};
 
 void List::print()
 {
@@ -288,8 +331,10 @@ void List::print()
         cout << tmp->Key << " ";
         tmp = tmp->next;
     }
+    cout << endl;
     cout << endl
          << "Head of list : " << this->head->Key << endl;
     cout << endl
-         << "Tail of list : " << this->tail->Key << endl;
+         << "Tail of list : " << this->tail->Key << endl
+         << endl;
 }

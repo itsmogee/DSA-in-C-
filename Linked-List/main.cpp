@@ -23,6 +23,8 @@ void testErase();
 
 void testReverse();
 
+void testRemoveValue();
+
 int main(int argc, char* argv[])
 {
     /*testPushFront();*/
@@ -34,7 +36,8 @@ int main(int argc, char* argv[])
     /*testBack();*/
     /*testInsertAt();*/
     /*testErase();*/
-    testReverse();
+    /*testReverse();*/
+    testRemoveValue();
     return 0;
 }
 
@@ -371,6 +374,33 @@ void testReverse()
     linkedListTest.reverse();
     cout << endl
          << "List after reversal" << endl;
+    temp = linkedListTest.head;
+    linkedListTest.print();
+}
+
+void testRemoveValue()
+{
+
+    cout << endl
+         << " ------------------------------ Testing RemoveValue() ------------------------------ " << endl;
+    List linkedListTest;
+
+    linkedListTest.pushFront(1);
+    linkedListTest.pushFront(2);
+    linkedListTest.pushFront(3);
+    linkedListTest.pushFront(4);
+    linkedListTest.pushFront(5);
+    linkedListTest.pushFront(6);
+    linkedListTest.pushFront(7);
+    linkedListTest.pushFront(8);
+
+    cout << "List : " << endl;
+    Node* temp = linkedListTest.head;
+    linkedListTest.print();
+
+    linkedListTest.removeValue(1);
+    linkedListTest.removeValue(2);
+    linkedListTest.removeValue(3);
     temp = linkedListTest.head;
     linkedListTest.print();
 }
