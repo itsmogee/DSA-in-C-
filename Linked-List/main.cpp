@@ -19,6 +19,8 @@ void testBack();
 
 void testInsertAt();
 
+void testErase();
+
 int main(int argc, char* argv[])
 {
     /*testPushFront();*/
@@ -26,9 +28,10 @@ int main(int argc, char* argv[])
     /*testPopFront();*/
     /*testPushBack();*/
     /*testPopBack();*/
-    testFront();
-    testBack();
-    testInsertAt();
+    /*testFront();*/
+    /*testBack();*/
+    /*testInsertAt();*/
+    testErase();
     return 0;
 }
 
@@ -303,6 +306,39 @@ void testInsertAt()
     temp = linkedListTest.head;
     cout << endl
          << "List after insertions" << endl;
+    while (temp) {
+        cout << temp->Key << " , ";
+        temp = temp->next;
+    }
+}
+
+void testErase()
+{
+    cout << endl
+         << " ------------------------------ Testing Erase() ------------------------------ " << endl;
+    List linkedListTest;
+
+    linkedListTest.pushFront(5);
+    linkedListTest.pushFront(18);
+    linkedListTest.pushFront(199);
+    linkedListTest.pushFront(223);
+    linkedListTest.pushFront(33);
+    linkedListTest.pushFront(18);
+    linkedListTest.pushFront(199);
+    linkedListTest.pushFront(28);
+
+    cout << "List : " << endl;
+    Node* temp = linkedListTest.head;
+    while (temp) {
+        cout << temp->Key << " , ";
+        temp = temp->next;
+    }
+
+    linkedListTest.erase(8);
+    /*linkedListTest.erase(9);*/
+    temp = linkedListTest.head;
+    cout << endl
+         << "List after deletions" << endl;
     while (temp) {
         cout << temp->Key << " , ";
         temp = temp->next;

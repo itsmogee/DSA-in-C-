@@ -201,6 +201,57 @@ void List::insert(int index, int value)
     return;
 };
 
-void List::erase(int index) {};
+void List::erase(int index)
+{
+    /**
+    Removes node at a given index
+    Is List Empty
+    Is Index valid
+    Find Index and delete item
+    Replace connections from and to prev and next pointers if they are not null
+    **/
+    if (!this->head) {
+        // Empty List
+        cout << endl
+             << "Empty List" << endl;
+        return;
+    }
+
+    // Is index valid
+    if (index >= this->size || index < 0) {
+        cout << "Index : " << index << " Out of range." << endl;
+        return;
+    }
+
+    // Only one value
+    if (this->size == 1) {
+        delete this->head;
+        this->head = nullptr;
+        this->tail = this->head;
+        this->size -= 1;
+        return;
+    }
+
+    Node* temp = this->head;
+    Node* prev = nullptr;
+
+    for (int i = 0; i < index; i++) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    if (!prev) {
+        this->head = temp->next;
+        this->size -= 1;
+        delete temp;
+        return;
+    }
+
+    prev->next = temp->next;
+    delete temp;
+    this->size -= 1;
+    return;
+};
+
 void List::reverse() {};
 void List::removeValue(int value) {};
