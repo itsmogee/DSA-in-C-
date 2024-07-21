@@ -98,7 +98,24 @@ int List::popFront()
     return removedValue;
 }
 
-void List::pushBack(int value) {};
+void List::pushBack(int value)
+{
+    // Adds item at the end of the array
+
+    // Empty list
+    Node* newNode = new Node(value);
+    this->size += 1;
+
+    if (!this->head) {
+        this->head = newNode;
+        this->tail = newNode;
+    } else {
+        Node* temp = this->tail;
+        temp->next = newNode;
+        this->tail = newNode;
+    }
+};
+
 int List::popBack()
 {
     return 1;
