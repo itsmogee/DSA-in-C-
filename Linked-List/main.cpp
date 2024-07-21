@@ -9,11 +9,14 @@ void testValueAt();
 
 void testPopFront();
 
+void testPushBack();
+
 int main(int argc, char* argv[])
 {
     testPushFront();
     testValueAt();
     testPopFront();
+    testPushBack();
     return 0;
 }
 
@@ -91,6 +94,50 @@ void testPopFront()
     cout << "List size after popping : " << popNumber << " times : " << linkedListTest.getSize() << endl;
 
     temp = linkedListTest.head;
+    while (temp) {
+        cout << temp->Key << endl;
+        temp = temp->next;
+    }
+}
+
+void testPushBack()
+{
+    cout << endl
+         << " ------------------------------ Testing PushBack() ------------------------------ " << endl;
+    List linkedListTest;
+
+    linkedListTest.pushFront(5);
+    linkedListTest.pushFront(18);
+    linkedListTest.pushFront(199);
+    linkedListTest.pushFront(223);
+    linkedListTest.pushFront(33);
+    linkedListTest.pushFront(18);
+    linkedListTest.pushFront(199);
+    linkedListTest.pushFront(28);
+
+    cout << "List before pushing : " << endl;
+    Node* temp = linkedListTest.head;
+    while (temp) {
+        cout << temp->Key << endl;
+        temp = temp->next;
+    }
+
+    int popNumber;
+    int value;
+    cout << "List Size : " << linkedListTest.getSize() << endl;
+    cout << "Input number of times to Push back : " << endl;
+    cin >> popNumber;
+    for (int i = 0; i < popNumber; i++) {
+        cout << "Input number to Push back : " << endl;
+        cin >> value;
+        linkedListTest.pushBack(value);
+        cout << "Pushed number is : " << value << endl;
+    }
+    cout << "List size after pushing : " << popNumber << " times : " << linkedListTest.getSize() << endl;
+
+    temp = linkedListTest.head;
+    cout << "Head == " << temp->Key << endl;
+    cout << "Tail == " << linkedListTest.tail->Key << endl;
     while (temp) {
         cout << temp->Key << endl;
         temp = temp->next;
