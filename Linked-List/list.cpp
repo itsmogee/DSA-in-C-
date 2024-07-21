@@ -152,7 +152,10 @@ int List::front()
 
 int List::back()
 {
-    return 1;
+    if (!this->tail) {
+        return -9999;
+    }
+    return this->tail->Key;
 };
 void List::insert(int index, int value) {};
 void List::erase(int index) {};

@@ -13,13 +13,19 @@ void testPushBack();
 
 void testPopBack();
 
+void testFront();
+
+void testBack();
+
 int main(int argc, char* argv[])
 {
-    testPushFront();
-    testValueAt();
-    testPopFront();
-    testPushBack();
-    testPopBack();
+    /*testPushFront();*/
+    /*testValueAt();*/
+    /*testPopFront();*/
+    /*testPushBack();*/
+    /*testPopBack();*/
+    testFront();
+    testBack();
     return 0;
 }
 
@@ -190,5 +196,77 @@ void testPopBack()
     while (temp) {
         cout << temp->Key << " , ";
         temp = temp->next;
+    }
+}
+
+void testFront()
+{
+
+    cout << endl
+         << " ------------------------------ Testing Front() ------------------------------ " << endl;
+    List linkedListTest;
+
+    linkedListTest.pushFront(5);
+    linkedListTest.pushFront(18);
+    linkedListTest.pushFront(199);
+    linkedListTest.pushFront(223);
+    linkedListTest.pushFront(33);
+    linkedListTest.pushFront(18);
+    linkedListTest.pushFront(199);
+    linkedListTest.pushFront(28);
+
+    cout << "List : " << endl;
+    Node* temp = linkedListTest.head;
+    while (temp) {
+        cout << temp->Key << " , ";
+        temp = temp->next;
+    }
+
+    temp = linkedListTest.head;
+    if (!temp) {
+        cout << endl
+             << "Head == NULL" << endl;
+        cout << endl
+             << "Tail == NULL" << endl;
+    } else {
+        cout << endl
+             << "Head == " << linkedListTest.front() << endl;
+        /*cout << "Tail == " << linkedListTest.tail->Key << endl;*/
+    }
+}
+
+void testBack()
+{
+
+    cout << endl
+         << " ------------------------------ Testing Back() ------------------------------ " << endl;
+    List linkedListTest;
+
+    linkedListTest.pushFront(5);
+    linkedListTest.pushFront(18);
+    linkedListTest.pushFront(199);
+    linkedListTest.pushFront(223);
+    linkedListTest.pushFront(33);
+    linkedListTest.pushFront(18);
+    linkedListTest.pushFront(199);
+    linkedListTest.pushFront(28);
+
+    cout << "List : " << endl;
+    Node* temp = linkedListTest.head;
+    while (temp) {
+        cout << temp->Key << " , ";
+        temp = temp->next;
+    }
+
+    temp = linkedListTest.head;
+    if (!temp) {
+        cout << endl
+             << "Head == NULL" << endl;
+        cout << endl
+             << "Tail == NULL" << endl;
+    } else {
+        cout << endl
+             << "Back == " << linkedListTest.back() << endl;
+        /*cout << "Tail == " << linkedListTest.tail->Key << endl;*/
     }
 }
