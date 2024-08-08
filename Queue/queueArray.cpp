@@ -27,6 +27,27 @@ int Queue_Array::Rear()
 
 void Queue_Array::Enqueue(int value)
 {
+    // Check if theres space
+    // Insert Value
+    // Update write index
+    // Check bounds
+
+    // Cases where it is full
+    int next = this->write + 1;
+    if (next >= this->capacity) {
+        next = 0;
+    }
+    if (next == this->read) {
+        cout << "Queue is full. Cannot add : " << value << endl;
+        return;
+    }
+
+    this->queue[this->write] = value;
+    this->write += 1;
+    if (this->write >= this->capacity) {
+        this->write = 0;
+    }
+    return;
 }
 
 int Queue_Array::Dequeue()
