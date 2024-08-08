@@ -52,6 +52,29 @@ void Queue_Array::Enqueue(int value)
 
 int Queue_Array::Dequeue()
 {
+    // Check if empty
+    // Store value to remove in a variable
+    // Replace value with placeholder or 0 = removed
+    // Update read pointer
+    if (this->write == this->read) {
+        cout << "Queue is already empty, cannot dequeue " << endl;
+        return -9999;
+    }
+
+    int temp = this->queue[this->read];
+    this->queue[this->read] = 0;
+    this->read += 1;
+
+    if (this->read >= this->capacity) {
+        this->read = 0;
+    }
+
+    if (this->read == this->write) {
+        this->read = 0;
+        this->write = 0;
+    }
+
+    return temp;
 }
 
 void Queue_Array::print()
