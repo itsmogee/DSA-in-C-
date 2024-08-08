@@ -1,6 +1,5 @@
 #include "queueArray.h"
 #include <iostream>
-#include <ostream>
 
 using namespace std;
 
@@ -8,17 +7,22 @@ Queue_Array::Queue_Array(int size)
 {
     this->queue = new int[size];
     this->capacity = size;
-    this->size = 0;
     this->write = 0;
     this->read = 0;
 }
 
 int Queue_Array::Front()
 {
+    // Front of Queue is the last item in array
+    if (this->write - 1 >= 0)
+        return this->queue[this->write - 1];
+    return this->queue[this->capacity - 1];
 }
 
 int Queue_Array::Rear()
 {
+    // Back of Queue is the first item
+    return this->queue[this->read];
 }
 
 void Queue_Array::Enqueue(int value)

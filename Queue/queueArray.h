@@ -4,9 +4,8 @@
 class Queue_Array {
 public:
     int* queue;
-    int capacity;
-    int size;
     int read;
+    int capacity;
     int write;
     Queue_Array(int size);
     int Front();
