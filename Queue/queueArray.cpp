@@ -79,6 +79,14 @@ int Queue_Array::Dequeue()
 
 void Queue_Array::print()
 {
+    cout << "-----------------------------------" << endl;
+    cout << "Front of Queue : " << Front() << endl;
+    cout << "Rear of Queue : " << Rear() << endl;
+    for (int i = 0; i < this->capacity; i++) {
+        cout << this->queue[i];
+    }
+    cout << endl;
+    cout << "-----------------------------------" << endl;
 }
 
 bool Queue_Array::isEmpty()
