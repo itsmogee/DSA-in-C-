@@ -91,6 +91,7 @@ void Queue_Array::print()
 
 bool Queue_Array::isEmpty()
 {
+    return this->read == this->write;
 }
 
 Queue_Array::~Queue_Array()
